@@ -1,0 +1,57 @@
+# Compilation artifacts
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+*.exe
+*.out
+*.app
+
+# Build directories
+build/
+.build*/
+build-*/
+bin/
+obj/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+*.cmake
+install_manifest.txt
+
+# IDE and editor files
+.vscode/
+.vs/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Compilation logs and temporary files
+*.log
+*.tmp
+*.temp
+*.d
+
+# Testing and coverage
+*.gcda
+*.gcno
+*.gcov
+coverage/
+lcov/
+
+# Profiling tools
+*.prof
+*.gmon
+*.out
+perf.data
+perf.data.old
+
+# Doxygen documentation
+doc/
+html/
+latex/

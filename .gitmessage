@@ -1,0 +1,61 @@
+# ================================
+# Conventional Commits 提交规范模板
+# ================================
+
+# 格式：
+# <type>(<scope>): <subject>
+
+# scope 可选，例如：auth, api, user, ui, db
+
+# ================================
+# 类型（type）说明：
+# feat     新功能
+# fix      修复 bug
+# docs     文档更新
+# style    代码格式（不影响逻辑）
+# refactor 重构（不新增功能或修复 bug）
+# perf     性能优化
+# test     测试相关
+# build    构建系统 / 依赖
+# ci       CI/CD 配置
+# chore    其他杂项
+# ================================
+
+# subject 规则：
+# - 使用祈使句（add / fix / update）
+# - 不要句号
+# - 小写开头（推荐）
+# - 不超过 50 字
+
+# 示例：
+# feat(auth): add login with email
+# fix(api): handle null response safely
+# refactor(api): simplify request handler
+# docs(readme): update setup guide
+
+# ================================
+# 提交标题（必填）
+# ================================
+
+<type>(<scope>): <subject>
+
+# ================================
+# 详细描述（可选）
+# body 与标题之间必须空一行
+#
+# - 为什么修改
+# - 修改了什么
+# - 影响范围
+# ================================
+
+<body>
+
+# ================================
+# Footer（可选）
+# ================================
+# Closes: 关闭 issue
+# Fixes: 修复 issue
+# BREAKING CHANGE: 破坏性更新说明
+# ================================
+
+<footer>

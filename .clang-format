@@ -1,0 +1,39 @@
+BasedOnStyle: LLVM  # 基础风格采用LLVM（与C++ Core Guidelines较接近）
+Language: Cpp
+ColumnLimit: 100    # 行宽限制（C++ Core Guidelines建议80-100）
+IndentWidth: 4      # 缩进4空格
+UseTab: Never       # 禁止使用Tab
+TabWidth: 4
+
+# 指针与引用对齐（C++ Core Guidelines推荐左对齐）
+PointerAlignment: Left
+DerivePointerAlignment: false
+
+# 大括号换行风格（类/函数/控制语句统一换行）
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass: true      # class后换行
+  AfterFunction: true   # 函数后换行
+  AfterControlStatement: true  # if/for等控制语句后换行
+  SplitEmptyRecord: false
+  SplitEmptyFunction: false
+
+AccessModifierOffset: -4  # 强制访问修饰符不缩进（左对齐）
+
+# 空格与对齐
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: true  # 连续赋值对齐
+AlignOperands: Align              # 表达式操作符对齐
+AlignTrailingComments: true       # 注释对齐
+
+# 函数与参数
+AllowAllParametersOfDeclarationOnNextLine: false  # 参数不换行
+BinPackParameters: false          # 参数不压缩（每行一个）
+AllowShortFunctionsOnASingleLine: Empty  # 仅空函数允许单行
+
+# 模板与命名空间
+AlwaysBreakTemplateDeclarations: Yes  # 模板声明换行
+NamespaceIndentation: All             # 命名空间缩进
+
+# 现代C++特性支持
+SortIncludes: false                   # 头文件排序

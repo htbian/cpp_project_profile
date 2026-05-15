@@ -1,0 +1,97 @@
+# .clang-tidy (仿 Visual Assist X 风格)
+# 核心思想：注重实效、安全第一、易于重构、提升可读性，避免过于挑剔的风格检查。
+
+Checks: >
+  # --- 第零步：重置 ---
+  -*
+
+  # --- 第一步：VAX 核心优势：错误预防和代码安全 (最高优先级) ---
+  clang-analyzer-*,
+  bugprone-*,
+
+  # --- 第二步：VAX 常用重构建议的自动化 ---
+  modernize-use-auto,
+  modernize-use-nullptr,
+  modernize-use-override,
+  modernize-use-equals-default,
+  modernize-use-equals-delete,
+  modernize-replace-auto-ptr,
+  modernize-loop-convert,
+  modernize-make-unique,
+  modernize-make-shared,
+  modernize-return-braced-init-list,
+  modernize-use-emplace,
+
+  # --- 第三步：性能和资源管理 ---
+  performance-*,
+  -performance-no-int-to-ptr,
+  misc-*,
+  -misc-non-private-member-variables-in-classes,
+
+  # --- 第四步：可读性和维护性 ---
+  readability-*,
+  -readability-identifier-length,
+  -readability-magic-numbers,
+  -readability-implicit-bool-conversion,
+  -readability-function-cognitive-complexity,
+  -readability-qualified-auto,
+  -readability-isolate-declaration,
+
+  # --- 第五步：禁用一些与VAX实用主义冲突的“学术性”检查 ---
+  -modernize-avoid-c-arrays,
+  -modernize-use-trailing-return-type,
+  -modernize-pass-by-value,
+  -bugprone-easily-swappable-parameters,
+  -bugprone-branch-clone,
+
+  # --- 第六步：C++核心指南检查 (可选) ---
+  hicpp-*,
+  -hicpp-no-array-decay,
+  -hicpp-vararg,
+
+  # --- 第七步：明确启用一些非常有用的特定检查 ---
+  misc-unused-parameters,
+  misc-unused-using-decls,
+  misc-definitions-in-headers,
+
+  # --- 第八步：命名规范检查 ---
+  readability-identifier-naming
+
+# 检查选项微调
+CheckOptions:
+  # modernize
+  - key: modernize-use-nullptr.NullMacros
+    value: 'NULL'
+  - key: modernize-use-auto.MinTypeNameLength
+    value: '8'
+  - key: modernize-loop-convert.MinConfidence
+    value: 'reasonable'
+  - key: modernize-use-emplace.InitializerListTypes
+    value: 'false'
+
+  # readability-identifier-naming (VAX风格)
+  - key: readability-identifier-naming.VariableCase
+    value: camelBack
+  - key: readability-identifier-naming.FunctionCase
+    value: camelBack
+  - key: readability-identifier-naming.ClassCase
+    value: PascalCase
+  - key: readability-identifier-naming.StructCase
+    value: PascalCase
+  - key: readability-identifier-naming.EnumCase
+    value: PascalCase
+  - key: readability-identifier-naming.EnumConstantCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.MacroCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.NamespaceCase
+    value: lower_case
+
+# 对头文件也进行检查
+HeaderFilterRegex: '.*'
+
+# 不将任何警告提升为错误，保持建议性质（VAX的警告也是建议性的）
+WarningsAsErrors: ''
+
+# 代码格式使用项目中单独的.clang-format文件管理
+FormatStyle: file
